@@ -1,0 +1,113 @@
+% mn2e-example.tex
+%
+% This is a skeleton MN-format article which displays the generated
+% test bibliography (mn2e-test.bbl) as it would appear in an article.
+% To see this, try:
+%
+%     make mn2e-example.pdf
+%
+% Note that the mn2e-test.aux file is written by hand; the
+% mn2e-example.aux file generated from this file is ignored.
+
+\documentclass[authoryear,10pt,5p,times]{elsarticle}
+
+\journal{Astronomy and Computing}
+
+\begin{document}
+
+\begin{frontmatter}
+\title{Illustrations of Citations}
+
+\author[ao]{Albert One}
+\ead{ao@example.ac.uk}
+\address[ao]{A Place, Somewhere}
+
+\author[bt]{Benedict Two}
+\address[bt]{Elsewhere, On Earth}
+
+\begin{abstract}
+It is important to make reference to things.
+\end{abstract}
+
+\end{frontmatter}
+
+% The following implements the three-author-hack described in
+% mn2e.bst.  This should be moved to mn2e.cls at some point.
+%
+% This consumes a command for each such author.  It's surely possible
+% to avoid this (with some constructions involving {\\#1}; see
+% Appendix D cleverness), but that would verge on the arcane, and not
+% be really worth it.
+%% \makeatletter
+%% \def\mniiiauthor#1#2#3{%
+%%   \@ifundefined{mniiiauth@#1}
+%%     {\global\expandafter\let\csname mniiiauth@#1\endcsname\null #2}
+%%     {#3}}
+%% \makeatother
+
+\section{Introduction}
+
+There are numerous citations here.
+
+In particular, there is
+`one'~\citep{one},
+`oneplus'~\citep{oneplus},
+`onereprised'~\citep{onereprised},
+`two'~\citep{two},
+`twoplus'~\citep{twoplus},
+`twobis'~\citep{twobis},
+`twobook'~\citep{twobook},
+`twomisc~\citep{twomisc},
+`tworeprised'~\citep{tworeprised},
+`three'~\citep{three},
+`threeplus'~\citep{threeplus},
+`threereprised'~\citep{threereprised},
+`four'~\citep{four},
+`fourplus'~\citep{fourplus},
+`seven'~\citep{seven},
+`sevenplus'~\citep{sevenplus},
+`eight'~\citep{eight},
+`eightplus'~\citep{eightplus},
+`nine'~\citep{nine},
+`nineplus'~\citep{nineplus},
+`ten'~\citep{ten},
+`tenplus'~\citep{tenplus} and
+`tenbis'~\citep{tenbis}.
+
+And secondly, there is
+`one'~\citep{one},
+`oneplus'~\citep{oneplus},
+`onereprised'~\citep{onereprised},
+`two'~\citep{two},
+`twoplus'~\citep{twoplus},
+`twobis'~\citep{twobis},
+`twobook'~\citep{twobook},
+`twomisc~\citep{twomisc},
+`tworeprised'~\citep{tworeprised},
+`three'~\citep{three},
+`threeplus'~\citep{threeplus},
+`threereprised'~\citep{threereprised},
+`four'~\citep{four},
+`fourplus'~\citep{fourplus},
+`seven'~\citep{seven},
+`sevenplus'~\citep{sevenplus},
+`eight'~\citep{eight},
+`eightplus'~\citep{eightplus},
+`nine'~\citep{nine},
+`nineplus'~\citep{nineplus},
+`ten'~\citep{ten},
+`tenplus'~\citep{tenplus} and
+`tenbis'~\citep{tenbis}.
+
+
+
+% ../model2-names.bst can generate a \logsortkey in the output, for
+% debugging.  That's generally commented out, but if you need to
+% uncomment that, then uncomment this, too.
+%\def\logsortkey#1{{[\tiny #1]}}
+%\input{model2-names-test.bbl}
+
+\bibliographystyle{model2-names-astronomy}
+\bibliography{model2-names-test}
+
+\end{document}
