@@ -62,7 +62,6 @@ FUNCTION {init.web.variables}
 {
   "\URLprefix "     'urlprefix :=
   "\DOIprefix"      'doiprefix :=
-  "\ArXivprefix  "   'eprintprefix :=
   "\Pubmedprefix "  'pubmedprefix :=
   #8 'maxauthors :=
 }
@@ -935,39 +934,65 @@ FUNCTION {format.organization.address}
 }
 
 FUNCTION {print.url}
- {url duplicate$ empty$
-   { pop$ "" }
-   { new.sentence
-     urlprefix "\url{" * swap$  * "}" *
-   }
-   if$
- }
+{ url duplicate$ empty$
+    { pop$ "" }
+    { new.sentence
+      urlprefix "\url{" * swap$  * "}" *
+    }
+  if$
+}
 
 FUNCTION {print.doi}
- {doi duplicate$ empty$
-   { pop$ "" }
-   { new.sentence
-     doiprefix "\doi{" * swap$  * "}" *
-   }
-   if$
- }
+{ doi duplicate$ empty$
+    { pop$ "" }
+    { new.sentence
+      doiprefix "\doi{" * swap$  * "}" *
+    }
+  if$
+}
 
+% The format of the output string is specifically {\tt arXiv:nnn}, and
+% not for example \texttt{arXiv:nnn} (see http://arxiv.org/help/faq/references).
+% The format of the ascl reference isn't specified so precisely, but
+% we should use the same format.
 FUNCTION {print.eprint}
- {eprint duplicate$ empty$
-   { pop$ "" }
-   { new.sentence
-     duplicate$ "\href{http://arxiv.org/abs/" swap$ * "}{{\tt arXiv:" * swap$ * "}}" *   }
-   if$
- }
+{ eprint empty$
+    { "" }
+    { new.sentence
+      % Match arxiv:nnn or arXiv:nnn
+      eprint #1 #6 substring$
+      duplicate$ "arXiv:" = swap$ "arxiv:" = or
+        { eprint #7 #999 substring$ duplicate$
+          "\href{http://arxiv.org/abs/" swap$ * "}{{\tt arXiv:" * swap$ * "}}" *
+        }
+        { % match ascl:
+          eprint #1 #5 substring$
+          "ascl:" =
+            { eprint #6 #999 substring$ duplicate$
+              "\href{http://ascl.net/" swap$ * "}{{\tt ascl:" * swap$ * "}}" *
+            }
+            { % no recognised prefix: default to arXiv
+              eprint duplicate$
+              "\href{http://arxiv.org/abs/" swap$ * "}{{\tt arXiv:" * swap$ * "}}" *
+            }
+          if$
+        }
+      if$
+    }
+  if$
+}
 
+% XXX Should 'pubmed:' be incorporated into the above 'print.eprint'
+% scheme?  This would mean that one could write eprint='pubmed:xxx'
+% and have that recognised and formatted as a pubmed text.
 FUNCTION {print.pubmed}
- {pubmed duplicate$ empty$
+{ pubmed duplicate$ empty$
    { pop$ "" }
    { new.sentence
      pubmedprefix "\Pubmed{" * swap$  * "}" *
    }
    if$
- }
+}
 
 FUNCTION {webpage}
 { "%Type = Webpage" write$
@@ -1630,8 +1655,6 @@ FUNCTION {begin.bib}
   "\providecommand{\path}[1]{#1}"
   write$ newline$
   "\providecommand{\DOIprefix}{doi:}"
-  write$ newline$
-  "\providecommand{\ArXivprefix}{arXiv:}"
   write$ newline$
   "\providecommand{\URLprefix}{URL: }"
   write$ newline$

@@ -1,11 +1,11 @@
-CHECKS=test-inproceedings
+CHECKS=test-inproceedings test-eprints
 
 %.bbl: %.aux model2-names-test.bib ../model2-names-astronomy.bst
 	bibtex $<
 
 %.diff: %.bbl
 	rm -f $@
-	diff $< ${<}-correct >$@ || :
+	diff ${<}-correct $< >$@ || :
 
 # The following succeeds, and prints 'All tests OK', if all of the
 # .diff files are of zero size; if one or more is non-empty, it
