@@ -1,4 +1,4 @@
-CHECKS=test-inproceedings test-eprints
+CHECKS=test-inproceedings test-eprints test-maxauthors
 
 %.bbl: %.aux model2-names-test.bib ../model2-names-astronomy.bst
 	bibtex $<

@@ -1,0 +1,50 @@
+\begin{thebibliography}{5}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{One(2001)}]{one}
+\bibinfo{author}{One, A.}, \bibinfo{year}{2001}.
+\newblock \bibinfo{title}{One alone}.
+\newblock \bibinfo{journal}{A\&C} \bibinfo{volume}{1},
+  \bibinfo{pages}{101--104}.
+%Type = Article
+\bibitem[{One  et~al.(2001)One et~al.}]{oneplus}
+\bibinfo{author}{One, A.}, et~al., \bibinfo{year}{2001}.
+\newblock \bibinfo{title}{One with friends}.
+\newblock \bibinfo{journal}{A\&C} \bibinfo{volume}{1},
+  \bibinfo{pages}{111--114}.
+%Type = Article
+\bibitem[{One et~al.(2001a)One, Two and Three}]{three}
+\bibinfo{author}{One, A.}, \bibinfo{author}{Two, B.}, \bibinfo{author}{Three,
+  C.}, \bibinfo{year}{2001}a.
+\newblock \bibinfo{title}{Three alone}.
+\newblock \bibinfo{journal}{A\&C} \bibinfo{volume}{3},
+  \bibinfo{pages}{301--304}.
+%Type = Article
+\bibitem[{One et~al.(2001b)One, Two, Three, Four, Five, Six, Seven and
+  Eight}]{eight}
+\bibinfo{author}{One, A.}, \bibinfo{author}{Two, B.}, \bibinfo{author}{Three,
+  C.}, \bibinfo{author}{Four, D.}, \bibinfo{author}{Five, E.},
+  \bibinfo{author}{Six, F.}, \bibinfo{author}{Seven, G.},
+  \bibinfo{author}{Eight, H.}, \bibinfo{year}{2001}b.
+\newblock \bibinfo{title}{Eight alone}.
+\newblock \bibinfo{journal}{A\&C} \bibinfo{volume}{8},
+  \bibinfo{pages}{801--804}.
+%Type = Article
+\bibitem[{One et~al.(2001c)One, Two, Three, Four, Five, Six, Seven, Eight and
+  Nine}]{nine}
+One, A. et~al., \bibinfo{year}{2001}c.
+\newblock \bibinfo{title}{Nine alone}.
+\newblock \bibinfo{journal}{A\&C} \bibinfo{volume}{9},
+  \bibinfo{pages}{901--904}.
+
+\end{thebibliography}
