@@ -367,7 +367,7 @@ MACRO {pasa} {"Publ. Astron. Soc. Aust."}
 MACRO {pasp} {"Publ. Astron. Soc. Pac."}
 MACRO {pasj} {"Publ. Astron. Soc. Jpn."}
 MACRO {rmxaa} {"Rev. Mex. Astron. Astr."}
-MACRO {rjras} {"Q. J. Roy. Astron. Soc."}
+MACRO {qjras} {"Q. J. Roy. Astron. Soc."}
 MACRO {skytel} {"Sky Telescope"}
 MACRO {solphys} {"Sol. Phys."}
 MACRO {sovast} {"Sov. Astron."}
