@@ -1,7 +1,8 @@
 *.acn
 *.acr
 *.alg
-*.aux
+# Don't ignore .aux -- these are checked-in files in test/
+#*.aux
 *.bbl
 *.blg
 *.dvi
